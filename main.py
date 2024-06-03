@@ -159,22 +159,19 @@ crossval_r2 = cross_val_score(lin_reg, X, Y, cv=5, scoring=None)
 crossval_r2
 
 crossval_r2.mean()
-price_predict = lin_reg.predict([[4, 2, 2000, 3000, 2, 4, 8, 2007, 0]])
 
-print('''
-Prediksi harga dengan kriteria sebagai berikut:
+bed = float(input("Masukan Jumlah bedrooms: "))
+bath = float(input("Masukan Jumlah bathrooms: "))
+sqft_living = float(input("Masukan Luas Rumah: "))
+sqft_lot = int(input("Masukan Luas Tanah: "))
+floors = float(input("Masukan Jumlah Lantai: "))
+cond = float(input("Masukan Kondisi rumah (1-5): "))
+grade = float(input("Masukan Grade rumah (1-10): "))
+year_build = int(input("Masukan Tahun Pembuatan: "))
+year_renov = int(input("Masukan Tahun Renovasi: "))
 
-bedrooms = 4
-bathrooms = 2
-sqft_living = 2000 sqft
-sqft_lot = 3000 sqft
-floors = 2
-condition = 4
-grade = 8
-yr_built = 2007
-yr_renovated = -
+price_predict = lin_reg.predict([[bed, bath, sqft_living, sqft_lot, floors, cond, grade, year_build, year_renov]])
 
-adalah:
-''')
-print(price_predict)
+print(f"Harga Prediksi Rumah: ${price_predict[0]:,.2f} ")
+
 
